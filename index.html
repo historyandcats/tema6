@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тема 6. Иван Грозный — История и котики</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#f7941d;--orange-d:#e07a0b;--navy:#3d3a5c;--blue:#5b7fc0;--cream:#fdf6ec;--beige:#f6e7d3;--line:#ecd9bf;--ink:#3d3a5c;--soft:#7d7690;--ok:#3f9d5a;--ok-bg:#e8f5ec;--bad:#d2493f;--bad-bg:#fcebea;--card:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Nunito',system-ui,sans-serif;color:var(--ink);background:var(--cream);font-size:17px;line-height:1.55}
+h1,h2,h3,.btn,.brand{font-family:'Rubik',system-ui,sans-serif}
+a{color:var(--blue)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.top{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+header.top .wrap{display:flex;align-items:center;gap:14px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;line-height:1;color:var(--navy);text-decoration:none;text-transform:lowercase}
+.brand img{height:42px}
+.brand span{display:block}
+nav.links{margin-left:auto;display:flex;gap:4px}
+nav.links a{text-decoration:none;color:var(--navy);font-weight:700;font-size:15px;padding:8px 12px;border-radius:10px}
+nav.links a:hover{background:var(--beige)}
+.sub-btn{background:var(--orange);color:#fff!important;border-radius:999px;padding:9px 16px!important;font-family:'Rubik';font-weight:600}
+.sub-btn:hover{background:var(--orange-d)!important}
+.hero{padding:44px 0 26px}
+.hero .wrap{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.pill{display:inline-block;background:var(--navy);color:#fff;font-family:'Rubik';font-weight:600;font-size:14px;padding:5px 14px;border-radius:999px;letter-spacing:.03em}
+.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.02;margin:14px 0 10px;color:var(--navy);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p{margin:0;color:var(--soft);max-width:560px;font-size:18px}
+.hero img{width:170px}
+.steps{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.steps a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px;text-decoration:none;color:var(--navy)}
+.steps a b{color:var(--orange);margin-right:4px}
+section.block{padding:30px 0;scroll-margin-top:60px}
+.sec-h{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+.sec-h .n{font-family:'Rubik';font-weight:800;color:var(--orange);font-size:30px}
+.sec-h h2{margin:0;font-size:28px;color:var(--navy)}
+.sec-h p{margin:0 0 0 auto;color:var(--soft);font-size:15px}
+.videos{display:grid;gap:22px}
+.video{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.video .vh{display:flex;align-items:center;gap:12px;padding:14px 18px}
+.video .vh .tag{background:var(--beige);color:var(--orange-d);font-family:'Rubik';font-weight:700;border-radius:10px;padding:4px 10px;font-size:14px}
+.video .vh h3{margin:0;font-size:19px}
+.video .vh a{margin-left:auto;font-size:14px;font-weight:700}
+.ratio{position:relative;aspect-ratio:16/9;background:#2b2840}
+.ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ratio video{position:absolute;inset:0;width:100%;height:100%;background:#2b2840}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.dl{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
+.dl:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(61,58,92,.12)}
+.dl .th{aspect-ratio:4/3;background:var(--beige);overflow:hidden;border-bottom:1px solid var(--line)}
+.dl .th img{width:100%;height:100%;object-fit:cover;object-position:top}
+.dl .bd{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.dl h3{margin:0;font-size:18px}
+.dl .meta{color:var(--soft);font-size:14px}
+.dl .go{margin-top:10px;align-self:flex-start;background:var(--navy);color:#fff;font-family:'Rubik';font-weight:600;font-size:14px;padding:8px 14px;border-radius:12px}
+.big-actions{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.big{border-radius:24px;padding:26px;color:#fff;display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden}
+.big.t{background:var(--orange)} .big.p{background:var(--navy)}
+.big h3{margin:0;font-size:26px}
+.big p{margin:0;opacity:.9}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:600;font-size:17px;border-radius:14px;padding:13px 22px;text-decoration:none;transition:filter .15s,transform .1s}
+.btn:active{transform:translateY(1px)}
+.btn.w{background:#fff;color:var(--navy);align-self:flex-start;margin-top:10px}
+.btn.o{background:var(--orange);color:#fff}
+.btn.n{background:var(--navy);color:#fff}
+.btn.g{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.btn:hover{filter:brightness(1.05)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+/* app views */
+.view{display:none}
+.view.on{display:block}
+.panel{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px}
+.qtop{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.back{background:none;border:0;color:var(--soft);font-weight:700;cursor:pointer;font-size:15px;padding:0}
+.prog{flex:1;min-width:160px;height:10px;background:var(--beige);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--orange);border-radius:99px;transition:width .3s}
+.score-mini{font-family:'Rubik';font-weight:700;color:var(--navy);font-size:15px}
+.qnum{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.qnum b{background:var(--orange);color:#fff;font-family:'Rubik';width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px}
+.qnum span{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);font-weight:800}
+.q{font-weight:700;margin:0 0 14px}
+table.mt{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:16px;margin-bottom:6px}
+.mt th{background:var(--beige);text-align:left;font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:9px 12px}
+.mt td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}
+.mt td+td,.mt th+th{border-left:1px solid var(--line)}
+.mt .blank{display:inline-block;min-width:70px;border-bottom:1.5px solid var(--orange);color:var(--orange-d);font-weight:800}
+ol.items{list-style:none;margin:0 0 6px;padding:0}
+ol.items li{padding:5px 0 5px 30px;position:relative}
+ol.items li b{position:absolute;left:0;color:var(--orange-d)}
+.src{background:var(--cream);border-left:4px solid var(--orange);border-radius:0 14px 14px 0;padding:14px 18px;font-style:italic;margin:0 0 16px}
+.src p{margin:0 0 8px}.src p:last-child{margin:0}
+.intro{font-weight:800;margin-bottom:8px}
+.map{margin:4px 0 12px;text-align:center}
+.map img{max-width:100%;max-height:640px;border-radius:12px;border:1px solid var(--line);cursor:zoom-in}
+.pool{columns:2;column-gap:24px}
+.answer{margin-top:20px;padding-top:18px;border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px}
+.cells{display:flex}
+.cell{display:flex;flex-direction:column;align-items:center}
+.cell label{font-weight:800;font-size:13px;color:var(--soft);margin-bottom:3px;height:18px}
+.cell input{width:46px;height:52px;text-align:center;font-family:'Rubik';font-size:22px;font-weight:700;color:var(--navy);border:2px solid #d8c2a4;margin-left:-2px;background:#fffaf3;outline:none}
+.cell:first-child input{border-radius:12px 0 0 12px;margin-left:0}.cell:last-child input{border-radius:0 12px 12px 0}
+.cell input:focus{border-color:var(--orange);position:relative;z-index:1;background:#fff}
+input.txt{height:52px;border:2px solid #d8c2a4;border-radius:12px;padding:0 16px;font-size:19px;font-family:'Rubik';font-weight:600;color:var(--navy);width:min(320px,100%);background:#fffaf3;outline:none}
+input.txt:focus{border-color:var(--orange);background:#fff}
+.hint{color:var(--soft);font-size:14px;width:100%;margin:-6px 0 0}
+.fb{margin-top:18px;border-radius:16px;padding:16px 18px;display:none}
+.fb.on{display:block}
+.fb.ok{background:var(--ok-bg);border:1px solid #bfe3c9}
+.fb.bad{background:var(--bad-bg);border:1px solid #f2c4c0}
+.fb .verdict{font-family:'Rubik';font-weight:700;font-size:20px;display:flex;align-items:center;gap:8px}
+.fb.ok .verdict{color:var(--ok)}.fb.bad .verdict{color:var(--bad)}
+.fb .right{margin:6px 0 10px;font-weight:700}
+.fb .right code{font-family:'Rubik';background:#fff;border-radius:8px;padding:2px 10px;font-size:18px;color:var(--navy);border:1px solid var(--line)}
+.fb .ex p{margin:0 0 6px;font-size:15.5px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:12px;flex-wrap:wrap}
+.result{text-align:center;padding:10px 0}
+.result img{width:140px}
+.result .big-score{font-family:'Rubik';font-weight:800;font-size:72px;color:var(--orange);line-height:1;margin:10px 0 4px}
+.result h2{margin:6px 0;color:var(--navy)}
+.grid30{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;max-width:520px;margin:22px auto}
+.grid30 button{aspect-ratio:1;border-radius:10px;border:0;font-family:'Rubik';font-weight:700;color:#fff;cursor:pointer;font-size:15px}
+.grid30 .ok{background:var(--ok)}.grid30 .bad{background:var(--bad)}
+.dots{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
+.dots button{width:26px;height:26px;border-radius:8px;border:1.5px solid var(--line);background:#fff;font-size:12px;font-weight:800;color:var(--soft);cursor:pointer;padding:0}
+.dots button.cur{border-color:var(--orange);color:var(--orange-d)}
+.dots button.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.dots button.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+/* part 2 */
+.p2{display:grid;gap:18px}
+.p2 .panel{padding:22px 24px}
+.lines{margin:8px 0 0;padding:0;list-style:none}
+.lines li{padding:4px 0;color:var(--soft)}
+.lines li span{display:inline-block;width:62%;border-bottom:1.5px solid var(--line);margin-left:8px;height:1em}
+.reveal{margin-top:16px}
+.ans{display:none;margin-top:14px;background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.ans.on{display:block}
+.ans h4{margin:0 0 8px;font-family:'Rubik';color:var(--orange-d)}
+.ans p{margin:0 0 8px;font-size:16px}
+details.srcd{margin-bottom:14px}
+details.srcd summary{cursor:pointer;font-weight:800;color:var(--blue)}
+footer{padding:40px 0 50px;text-align:center;color:var(--soft);font-size:15px}
+footer img{width:60px;display:block;margin:0 auto 8px}
+.lightbox{position:fixed;inset:0;background:rgba(30,28,45,.85);display:none;align-items:center;justify-content:center;z-index:50;padding:20px;cursor:zoom-out}
+.lightbox.on{display:flex}
+.lightbox img{max-width:100%;max-height:100%;border-radius:10px;background:#fff}
+@media (max-width:760px){
+  body{font-size:16px}
+  nav.links a:not(.sub-btn){display:none}
+  .hero .wrap{grid-template-columns:1fr}.hero img{display:none}
+  .big-actions{grid-template-columns:1fr}
+  .sec-h{flex-wrap:wrap}.sec-h p{margin:0;width:100%}
+  .panel{padding:18px}
+  .mt{font-size:14px}.mt td,.mt th{padding:7px 6px}.mt th{font-size:10.5px;letter-spacing:.03em;hyphens:auto}.mt td{hyphens:auto;overflow-wrap:anywhere}.mt .blank{min-width:44px}
+  .pool{columns:1}
+  .cell input{width:40px;height:48px}
+  .grid30{grid-template-columns:repeat(6,1fr)}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#" onclick="go('home');return false"><img src="img/logo.png" alt=""><span>история<br>и котики</span></a>
+  <nav class="links">
+    <a href="#" onclick="go('home','videos');return false">Видео</a>
+    <a href="#" onclick="go('home','materials');return false">Материалы</a>
+    <a href="#" onclick="go('test');return false">Тест</a>
+    <a href="#" onclick="go('part2');return false">Вторая часть</a>
+    <a class="sub-btn" href="https://t.me/historyandcats" target="_blank" rel="noopener">Подписаться</a>
+  </nav>
+</div></header>
+
+<main>
+<!-- HOME -->
+<div id="v-home" class="view on">
+  <div class="hero"><div class="wrap">
+    <div>
+      <span class="pill">Тема 6</span>
+      <h1>Иван <em>Грозный</em></h1>
+      <p>Смотрим лекции, работаем со скриптом и материалами, а потом проверяем себя тестом и заданиями второй части.</p>
+      <div class="steps">
+        <a href="#videos"><b>1</b>Видеоуроки</a>
+        <a href="#scripts"><b>2</b>Скрипты</a>
+        <a href="#materials"><b>3</b>Материалы</a>
+        <a href="#practice"><b>4</b>Практика</a>
+      </div>
+    </div>
+    <img src="img/logo.png" alt="">
+  </div></div>
+
+  <section class="block" id="videos"><div class="wrap">
+    <div class="sec-h"><span class="n">01</span><h2>Видеоуроки</h2><p>2 лекции</p></div>
+    <div class="videos" id="videoList"></div>
+  </div></section>
+
+  <section class="block" id="scripts"><div class="wrap">
+    <div class="sec-h"><span class="n">02</span><h2>Скрипты</h2><p>Пустой — заполняем во время лекции, заполненный — для проверки</p></div>
+    <div class="cards">
+      <a class="dl" href="materials/skript-6-pustoj.pdf" download><div class="th"><img src="img/skript-pust.jpg" alt=""></div><div class="bd"><h3>Скрипт 6 · пустой</h3><span class="meta">PDF · для заполнения</span><span class="go">Скачать</span></div></a>
+      <a class="dl" href="materials/skript-6-zapolnennyj.pdf" download><div class="th"><img src="img/skript-zap.jpg" alt=""></div><div class="bd"><h3>Скрипт 6 · заполненный</h3><span class="meta">PDF · для проверки</span><span class="go">Скачать</span></div></a>
+    </div>
+  </div></section>
+
+  <section class="block" id="materials"><div class="wrap">
+    <div class="sec-h"><span class="n">03</span><h2>Материалы</h2><p>Скачайте и распечатайте</p></div>
+    <div class="cards">
+      <a class="dl" href="materials/zapominashka-6.pdf" download><div class="th"><img src="img/zapom.jpg" alt=""></div><div class="bd"><h3>Запоминашка</h3><span class="meta">PDF · правители, даты, персоны</span><span class="go">Скачать</span></div></a>
+      <a class="dl" href="materials/konturnaya-karta-6.pdf" download><div class="th"><img src="img/karta.jpg" alt=""></div><div class="bd"><h3>Контурная карта</h3><span class="meta">PDF · задание для печати</span><span class="go">Скачать</span></div></a>
+      <a class="dl" href="materials/konspekt-6.pdf" download><div class="th"><img src="img/konspekt.jpg" alt=""></div><div class="bd"><h3>Конспект</h3><span class="meta">PDF · теория по теме</span><span class="go">Скачать</span></div></a>
+    </div>
+  </div></section>
+
+  <section class="block" id="practice"><div class="wrap">
+    <div class="sec-h"><span class="n">04</span><h2>Практика</h2></div>
+    <div class="big-actions">
+      <div class="big t"><h3>Тест · первая часть</h3><p>25 заданий. После каждого ответа сразу видно, верно или нет, и пояснение. В конце — баллы.</p><button class="btn w" onclick="startTest()">Пройти тест →</button></div>
+      <div class="big p"><h3>Вторая часть</h3><p>6 заданий с развёрнутым ответом. Ответы оформляйте по образцу, указанному в задании.</p><button class="btn w" onclick="go('part2')">Вторая часть →</button></div>
+    </div>
+  </div></section>
+</div>
+
+<!-- TEST -->
+<div id="v-test" class="view"><section class="block"><div class="wrap">
+  <div class="panel" id="testPanel"></div>
+</div></section></div>
+
+<!-- PART 2 -->
+<div id="v-part2" class="view"><section class="block"><div class="wrap">
+  <div class="qtop"><button class="back" onclick="go('home','practice')">← К теме</button></div>
+  <div class="sec-h"><span class="n">II</span><h2>Вторая часть</h2><p>Задания с развёрнутым ответом</p></div>
+  <div class="p2" id="p2list"></div>
+</div></section></div>
+</main>
+
+<footer><img src="img/logo.png" alt=""><div>История и котики · <a href="https://t.me/historyandcats" target="_blank" rel="noopener">t.me/historyandcats</a></div></footer>
+<div class="lightbox" id="lb" onclick="this.classList.remove('on')"><img alt=""></div>
+
+<script>
+const VIDEOS=[
+ {t:"Лекция 1",id:"0429f6ab9085f1cacaaf39c7d2817e09",p:"pgFAI8h0eFcDFlHblVH-9w"},
+ {t:"Лекция 2",id:"96b58a97d01796be5acb42df9747f123",p:"nyEdM5idPGy5KofAfgBlVw"}];
+const QUIZ=[{"kind": "match", "q": "Установите соответствие между событиями и годами: к каждой позиции первого столбца подберите соответствующую позицию из второго столбца.", "h": ["События", "Годы"], "left": ["смерть Василия III", "венчание на царство Ивана IV", "Стоглавый собор", "начало Ливонской войны"], "right": ["1558 г.", "1547 г.", "1553 г.", "1533 г.", "1549 г.", "1551 г."], "ans": "4261", "expl": ["А) Великий князь Василий III умер в 1533 году; на престол взошёл его трёхлетний сын Иван IV при регентстве матери, Елены Глинской.", "Б) В январе 1547 года Иван IV венчался на царство в Успенском соборе Московского Кремля — впервые великий князь московский принял титул царя.", "В) Стоглавый собор состоялся в 1551 году; его решения («Стоглав») упорядочили церковную жизнь и обряды.", "Г) Ливонская война началась в 1558 году походом русских войск в Ливонию."], "check": {"mode": "cells", "n": 4, "letters": true}}, {"kind": "chrono", "q": "Расположите в хронологической последовательности исторические события. Запишите цифры, которыми обозначены исторические события, в правильной последовательности.", "items": ["начало созыва Земских соборов", "начало Реформации в Англии", "учреждение патриаршества на Руси"], "ans": "213", "expl": ["1) начало созыва Земских соборов — 1549 г. (Собор примирения)", "2) начало Реформации в Англии — 1534 г. («Акт о супрематии»)", "3) учреждение патриаршества на Руси — 1589 г."], "check": {"mode": "cells", "n": 3, "letters": false}}, {"kind": "source", "intro": "Прочтите отрывок из летописи.", "text": ["Пришли воины с Волги-реки в Сибирь. …[Путь] же им в Сибирь [шёл] Чусовою рекою, а придя на реку Тагил, плыли по Тагилу и Турою-рекою и дошли до реки Тавды…", "По взятии же града Сибири в 4 день пришёл во град Сибирь остяцкий князь именем Бояр со многими остяками, принеся же Ермаку и казаком многие дары и запасы, что им на потребу…", "Атаман же и казаки к великому государю к Москве …[прибыли]. Благочестивый государь… повелел отписку у атамана принять и прочесть вслух пред своим лицом. И когда услышал государь, что помощью Божию и силою …[расширилось государство его] и покорены непокорные …[враги его], тогда же прославил Бога …[за то, что побеждены непокорные были малым отрядом]. Ермак же заочным государским словом пожалован; атамана ж и казаков великий государь… пожаловал своим царским жалованьем, деньгами и сукнами добрыми. И потом государь приказал их казаков отпустить в Сибирь к Ермаку и послать своё государево жалованье многое за их к нему великому государю службу и за пролитие крови их."], "q": "Используя отрывок и знания по истории, выберите в приведённом списке верные суждения. Запишите цифры, под которыми они указаны.", "items": ["В отрывке описаны события, результатом которых стало присоединение к Московскому царству Западной Сибири.", "В оснащении отряда Ермака участвовали купцы Строгановы.", "В описанных событиях отряду казаков во главе с Ермаком противостояло войско хана Кучума.", "В период правления монарха, о котором идёт речь в отрывке, к Московскому царству были присоединены Ям, Ивангород, Копорье и Корела.", "Для взятия столицы Сибирского ханства была построена крепость Свияжск.", "Ермак погиб в процессе похода на Сибирское ханство."], "ans": "1236", "expl": ["1) ДА, верно. Поход Ермака (1581–1585) положил начало присоединению Западной Сибири.", "2) ДА, верно. Отряд Ермака снарядили купцы Строгановы, владевшие землями на Каме и Чусовой.", "3) ДА, верно. Казакам противостояло войско сибирского хана Кучума; столица ханства — Кашлык (Искер, «град Сибирь»).", "4) НЕТ, неверно. Ям, Ивангород, Копорье и Корелу Россия, наоборот, уступила Швеции по Плюсскому перемирию 1583 г.; вернули их по Тявзинскому миру 1595 г., уже при Фёдоре Ивановиче.", "5) НЕТ, неверно. Свияжск построили в 1551 г. для осады Казани, а не столицы Сибирского ханства.", "6) ДА, верно. Ермак погиб в 1585 г. на реке Вагай во время ночного нападения людей Кучума."], "check": {"mode": "set"}}, {"kind": "chrono", "q": "Расположите в хронологической последовательности исторические события. Запишите цифры, которыми обозначены исторические события, в правильной последовательности.", "items": ["введение «заповедных лет»", "указ об «урочных летах» (пятилетнем сроке сыска беглых крестьян)", "образование Речи Посполитой"], "ans": "312", "expl": ["1) введение «заповедных лет» — 1581 г.", "2) указ об «урочных летах» — 1597 г.", "3) образование Речи Посполитой (Люблинская уния) — 1569 г."], "check": {"mode": "cells", "n": 3, "letters": false}}, {"kind": "match", "q": "Установите соответствие между событиями и годами: к каждой позиции первого столбца подберите соответствующую позицию из второго столбца.", "h": ["События", "Годы"], "left": ["поход Девлет-Гирея на русские земли", "введение заповедных лет", "учреждение патриаршества в России", "Плюсское перемирие"], "right": ["1589 г.", "1590 г.", "1571 г.", "1583 г.", "1581 г.", "1552 г."], "ans": "3514", "expl": ["А) В 1571 году крымский хан Девлет-Гирей дошёл до Москвы и сжёг её посады.", "Б) Заповедные лета — временный запрет крестьянского выхода в Юрьев день — впервые введены в 1581 году.", "В) Патриаршество в России учреждено в 1589 году; первым патриархом стал Иов.", "Г) Плюсское перемирие со Швецией заключено в 1583 году и завершило Ливонскую войну."], "check": {"mode": "cells", "n": 4, "letters": true}}, {"kind": "source", "intro": "Прочтите отрывок из воспоминаний военачальника и политического деятеля.", "text": ["По Божьему изволению начало самодержавия истинно православного Российского царства — от великого князя Владимира, просветившего всю Русскую землю святым крещением <…> вплоть до мстителя за несправедливости, деда Нашего, великого князя Ивана, и до приобретателя исконных прародительских земель, блаженной памяти отца Нашего великого государя Василия, и до Нас, смиренных скипетродержателей Российского царства. Мы же хвалим Бога за премногую милость к Нам, что не допустил он деснице Нашей обагриться единоплеменной кровью, ибо Мы не отняли ни у кого царства, но по Божию изволению и по благословению своих прародителей и родителей как родились на царстве, так и были воспитаны и выросли, и Божиим повелением воцарились, и взяли всё родительским благословением. <…>", "Неужели же ты видишь благочестивую красоту там, где царство находится в руках попа-невежи и злодеев-изменников, а царь им повинуется? <…> Был в это время при Нашем дворе собака Алексей, ваш начальник, ещё в дни Нашей юности неизвестно каким образом возвысившийся из батожников. <…> Каких почестей и богатства удостоили Мы не только его, но и его род! <…> Потом для совета в духовных делах и спасения своей души взяли Мы попа Сильвестра, надеясь, что он, человек, стоящий у престола Господня, побережёт свою душу. <…> Поп Сильвестр сдружился с Алексеем, и начали они советоваться тайком от Нас, считая Нас неразумными: вместо духовных стали заниматься мирскими делами; мало-помалу стали подчинять вас, бояр, своей воле, отнимая от Нас великолепие Нашей власти; приучали вас прекословить Нам, <…> окружили себя друзьями и делали всё по своей воле. <…>", "Ничем Мы не гордимся и не хвастаемся, и нечем Нам гордиться, ибо мы исполняем свой царский долг и никого не считаем выше себя. Скорее это вы гордитесь, ибо, будучи рабами, присваиваете себе святительский и царский сан и учите, запрещая и повелевая."], "q": "Используя отрывок и знания по истории, выберите в приведённом списке верные суждения. Запишите цифры, под которыми они указаны.", "items": ["Письмо написано во второй половине XVI в.", "Великий князь Иван, упомянутый в отрывке, имел прозвище Калита.", "Исконные прародительские земли, о которых идёт речь в отрывке, — это Киев и Новгород.", "По мнению автора письма, одним из оснований царской власти является династическое наследование.", "Круг приближённых при дворе царя, делавших, по мнению автора письма, «всё по своей воле», вошёл в историю как Избранная рада.", "Автор письма стал последним представителем династии Рюриковичей на царском престоле."], "ans": "145", "expl": ["1) ДА, верно. Это первое послание Ивана Грозного князю Андрею Курбскому, 1564 г.", "2) НЕТ, неверно. «Дед Наш, великий князь Иван» — это Иван III, а не Иван Калита.", "3) НЕТ, неверно. Василий III присоединял Псков, Смоленск, Рязань; Киев в это время в состав Русского государства не входил.", "4) ДА, верно. Царь подчёркивает, что «родились на царстве» и взяли власть «родительским благословением».", "5) ДА, верно. Речь об Алексее Адашеве и Сильвестре — главных деятелях Избранной рады.", "6) НЕТ, неверно. Последним Рюриковичем на царском престоле был сын Ивана IV — Фёдор Иванович (ум. 1598)."], "check": {"mode": "set"}}, {"kind": "source", "intro": "Прочтите отрывок из исторического источника.", "text": ["Господь, решив усмирить …лютость [царя], подал ему знак, обрушив на Москву великий пожар. Из-за того пожара разразилось столь великое возмущение всего народа московского, что сам царь принуждён был спрятаться со всем своим двором. В том восстании был убит дядя царя, князь Юрий Глинский, а двор его разграблен народом…", "Таким знаком Бог подал руку помощи земле христианской, дав ей возможность отдохнуть. К царю… явился протопоп родом из Великого Новгорода, и страшным заклятием из Священного Писания угрозил царю, а также представил ему чудеса, как бы явленные от Бога…, чтобы с их помощью пресечь его буйства и умерить неистовый нрав. … Сильвестру содействовал в этом и благородный юноша Алексей Адашев… Эти два мужа делали много добра своей сокрушённой и опустошённой земле; царь же благосклонно, со вниманием слушал их."], "q": "Используя отрывок и знания по истории, выберите в приведённом списке верные суждения. Запишите цифры, под которыми они указаны.", "items": ["Пожар, упомянутый в отрывке, произошёл в период боярского правления.", "Упомянутый в отрывке Алексей Адашев во второй половине правления царя, упомянутого в отрывке, бежал в Литву.", "Протопоп Сильвестр, упомянутый в отрывке, составил «чин венчания», по которому монарх, о котором идёт речь, принял царский титул.", "Упоминаемые в источнике «мужи» оставались доверенными советниками царя вплоть до его смерти.", "В период правления царя, о котором идёт речь в отрывке, было издано «Уложение о службе».", "Упоминаемые в источнике «мужи» вместе с другими советниками царя составили так называемую Избранную раду."], "ans": "56", "expl": ["1) НЕТ, неверно. Московский пожар и восстание произошли летом 1547 г., уже после венчания Ивана IV на царство (январь 1547 г.), когда боярское правление закончилось.", "2) НЕТ, неверно. В Литву бежал князь Андрей Курбский (1564). Адашев попал в опалу и умер в 1561 г. в Дерпте.", "3) НЕТ, неверно. Чин венчания на царство составил митрополит Макарий.", "4) НЕТ, неверно. Около 1560 г. Адашев и Сильвестр попали в опалу; Избранная рада прекратила существование.", "5) ДА, верно. «Уложение о службе» издано в 1556 г.", "6) ДА, верно. Адашев и Сильвестр — ключевые фигуры Избранной рады."], "check": {"mode": "set"}}, {"kind": "map", "map": "shema-6a", "q": "Заполните пропуск в предложении (укажите год). «Город под цифрой «5» был присоединён к Русскому государству в 15____ году». Ответ запишите словом (словосочетанием).", "ans": "пятьдесят втором", "expl": ["Цифрой «5» на Волге отмечена Казань. Казань взята войсками Ивана IV в 1552 году, Казанское ханство присоединено к Русскому государству."], "text": null, "items": null, "check": {"mode": "word", "accept": ["пятьдесятвтором", "пятьдесятвторой"]}}, {"kind": "map", "map": "shema-6a", "q": "Запишите название города, отмеченного на схеме цифрой «6».", "ans": "Уфа", "expl": ["Цифрой «6» на реке Белой отмечена Уфа — крепость, основанная в 1574 г. после присоединения Башкирии."], "text": null, "items": null, "check": {"mode": "word", "accept": ["уфа"]}}, {"kind": "map", "map": "shema-6a", "q": "Прочтите отрывок из сочинения историка о событиях, обозначенных на схеме, и укажите название моря, которое пропущено в тексте. Ответ запишите в именительном падеже.", "ans": "Каспийское", "expl": ["Астрахань стоит в дельте Волги у Каспийского моря. Речь о походе 1556 г., после которого Астраханское ханство окончательно вошло в состав Русского государства."], "text": "Первыми, до подхода остальных войск, достигли Астрахани волжские казаки Ляпуна Филимонова. Они неожиданно напали на город и нанесли серьёзное поражение местному гарнизону, не успевшему даже запереться в кремле.\nПодоспевшие стрельцы и донские казаки без труда заняли город и стали продвигаться к ______ морю в дельте Волги, куда бежал из Астрахани хан Дервиш-Али и где в 20 км от побережья разбил в недоступных плавнях свою Ставку.\nОкружив лагерь татар, русские войска напали на них ночью и разбили их, вызвав панику. Но к утру, пойдя по стопам русских войск, возвращавшихся «с победой» в Астрахань, хан Дервиш-Али нанёс им сильный урон.", "items": null, "check": {"mode": "word", "accept": ["каспийское", "каспийскоеморе", "каспийскому", "каспий"]}}, {"kind": "map", "map": "shema-6a", "q": "Какие суждения, относящиеся к схеме, являются верными? Запишите цифры, под которыми они указаны.", "ans": "56", "expl": ["1) НЕТ, неверно. Дерпт (Юрьев) в 1547 г. принадлежал Ливонии; русские войска взяли его только в 1558 г.", "2) НЕТ, неверно. Цифрой «2» в излучине Волги отмечена Самара — её основали в 1586 г., при царе Фёдоре Ивановиче, а не при Елене Глинской.", "3) НЕТ, неверно. Цифрой «1» на Западной Двине отмечен Полоцк. Стены по проекту Фёдора Коня построены в Смоленске (1595–1602) — он отмечен цифрой «4».", "4) НЕТ, неверно. Под цифрой «4» на Днепре отмечен Смоленск, а Полоцк — под цифрой «1».", "5) ДА, верно. Цифрой «3» отмечен Псков.", "6) ДА, верно. Цифрой «8» отмечено Крымское ханство."], "text": null, "items": ["В 1547 г. в состав Русского государства входил г. Дерпт.", "Город, отмеченный цифрой «2», был основан Еленой Глинской.", "В городе, отмеченном цифрой «1», в конце XVI в. были построены каменные стены, спроектированные архитектором Фёдором Конём.", "Под цифрой «4» отмечен город Полоцк.", "Под цифрой «3» отмечен город Псков.", "Цифрой «8» на схеме отмечено Крымское ханство."], "check": {"mode": "set"}}, {"kind": "match", "q": "Установите соответствие между событиями и годами: к каждой позиции первого столбца подберите соответствующую позицию из второго столбца.", "h": ["События", "Годы"], "left": ["Люблинская уния", "Ям-Запольское перемирие", "смерть Анастасии Романовны", "опричный поход на Новгород"], "right": ["1582 г.", "1503 г.", "1560 г.", "1551 г.", "1570 г.", "1569 г."], "ans": "6135", "expl": ["А) Люблинская уния 1569 года объединила Польшу и Великое княжество Литовское в Речь Посполитую.", "Б) Ям-Запольское перемирие с Речью Посполитой заключено в 1582 году.", "В) Первая жена Ивана IV, царица Анастасия Романовна, умерла в 1560 году; после её смерти царь отдалился от Избранной рады.", "Г) Опричный поход на Новгород и погром города состоялись зимой 1569–1570 гг. (основные события — январь 1570 г.)."], "check": {"mode": "cells", "n": 4, "letters": true}}, {"kind": "chrono", "q": "Расположите в хронологической последовательности исторические события. Запишите цифры, которыми обозначены исторические события, в правильной последовательности.", "items": ["принятие Судебника Ивана IV", "заключение Плюсского перемирия", "издание Нантского эдикта во Франции"], "ans": "123", "expl": ["1) принятие Судебника Ивана IV — 1550 г.", "2) заключение Плюсского перемирия — 1583 г.", "3) издание Нантского эдикта во Франции — 1598 г."], "check": {"mode": "cells", "n": 3, "letters": false}}, {"kind": "table13", "q": "Заполните пустые ячейки таблицы, используя приведённый ниже список пропущенных элементов: для каждого пропуска, обозначенного буквой, выберите номер нужного элемента.", "items": ["Якутск", "разгром крымско-татарских войск объединённой земско-опричной армией под командованием Михаила Воротынского", "1590-е гг.", "1610-е гг.", "Кашлык", "городское восстание, вызванное крупным пожаром и недовольством населения правительством Глинских", "гибель царевича Дмитрия Иоанновича", "Свияжск", "1580-е гг."], "rows": [["Углич", "#А", "#Б"], ["#В", "поход Ермака на Сибирское ханство", "#Г"], ["Молоди", "#Д", "1570-е гг."], ["#Е", "строительство крепости для последующей осады соседней Казани", "1550-е гг."]], "ans": "735928", "expl": ["А, Б) В Угличе в 1591 г. (1590-е гг. — 3) погиб царевич Дмитрий Иоаннович (7).", "В, Г) Поход Ермака на Сибирское ханство и взятие его столицы Кашлыка (5) — 1580-е гг. (9).", "Д) При Молодях в 1572 г. земско-опричное войско М. И. Воротынского разгромило крымско-татарскую армию (2).", "Е) В 1551 г. для осады Казани была построена крепость Свияжск (8)."], "check": {"mode": "cells", "n": 6, "letters": true}}, {"kind": "chrono", "q": "Расположите в хронологической последовательности исторические события. Запишите цифры, которыми обозначены исторические события, в правильной последовательности.", "items": ["начало похода Ермака в Сибирь", "венчание Ивана IV Грозного на царство", "Аугсбургский религиозный мир"], "ans": "231", "expl": ["1) начало похода Ермака в Сибирь — 1581 г.", "2) венчание Ивана IV на царство — 1547 г.", "3) Аугсбургский религиозный мир — 1555 г."], "check": {"mode": "cells", "n": 3, "letters": false}}, {"kind": "chrono", "q": "Расположите в хронологической последовательности исторические события. Запишите цифры, которыми обозначены исторические события, в правильной последовательности.", "items": ["завершение опричнины Ивана IV Грозного", "начало книгопечатания на Руси", "разгром Англией «Непобедимой армады»"], "ans": "213", "expl": ["1) завершение опричнины — 1572 г.", "2) начало книгопечатания на Руси («Апостол» Ивана Фёдорова) — 1564 г.", "3) разгром «Непобедимой армады» — 1588 г."], "check": {"mode": "cells", "n": 3, "letters": false}}, {"kind": "source", "intro": "Прочтите отрывок из воспоминаний исторического деятеля.", "text": ["Царь исполнился усердием, сам и по собственному разумению начал вооружаться против врага и собирать многочисленные и храбрые войска. Он уже не хотел наслаждаться покоем, жить, затворясь в прекрасных хоромах, как в обыкновении у теперешних царей на западе (прожигать целые ночи, сидя за картами и другими бесовскими измышлениями), но сам поднимался не раз, не щадя своего здоровья, на враждебного и злейшего своего противника — казанского царя. И хоть не взял он в одну суровую зиму этого столичного города, то есть крепости Казани, и отступил без всякого успеха, вовсе не впали в уныние душа его и храбрая его воинственность. И, оценив положение города, через год или два распорядился он построить немедля на реке Свияге большую превосходную крепость, за четверть мили от Волги и миль за пять от великого города Казани, — вот как близко уже подошёл!", "В тот же год отправив по Волге большие стенобитные пушки, сам он хотел тотчас пойти сухим путём. Но тут пришло известие, что крымский хан идёт на него с большими силами, препятствуя походу на Казань. И хотя для постройки крепости он послал прежде большое войско, да и при пушках множество воинов, но по этому случаю ненадолго отсрочил поход на Казань."], "q": "Используя отрывок и знания по истории, выберите в приведённом списке верные суждения. Запишите цифры, под которыми они указаны.", "items": ["Современником описываемых событий был А. Л. Ордин-Нащокин.", "Автор пишет, что царь не стал откладывать поход на Казань из-за вторжения крымцев.", "В период правления царя, о котором идёт речь в тексте, проводилась политика опричнины.", "Описанные события произошли в первой половине правления упоминаемого в отрывке царя.", "В период правления царя, о котором идёт речь в тексте, в России был созван первый Земский собор.", "Автор считает, что царь был храбр."], "ans": "3456", "expl": ["1) НЕТ, неверно. А. Л. Ордин-Нащокин — деятель XVII в., времени Алексея Михайловича.", "2) НЕТ, неверно. Автор прямо пишет, что царь «ненадолго отсрочил поход на Казань».", "3) ДА, верно. Речь об Иване IV; опричнина — 1565–1572 гг.", "4) ДА, верно. Строительство Свияжска (1551) и подготовка взятия Казани (1552) относятся к первой половине правления Ивана IV.", "5) ДА, верно. Первый Земский собор созван в 1549 г.", "6) ДА, верно: автор пишет о «храброй его воинственности»."], "check": {"mode": "set"}}, {"kind": "match", "q": "Установите соответствие между событиями и участниками этих событий: к каждой позиции первого столбца подберите соответствующую позицию из второго столбца.", "h": ["События (явления, процессы)", "Участники"], "left": ["издание указа об урочных летах", "деятельность Избранной рады", "опричный поход на Новгород", "осада Пскова польско-литовскими войсками"], "right": ["Алексей Адашев", "Стефан Баторий", "Елена Глинская", "Малюта Скуратов", "царь Фёдор Иванович", "хан Кучум"], "ans": "5142", "expl": ["А) Указ об урочных летах (пятилетний сыск беглых крестьян) издан в 1597 г., при царе Фёдоре Ивановиче.", "Б) Алексей Адашев — один из руководителей Избранной рады.", "В) Малюта Скуратов — один из самых известных опричников, участник похода на Новгород 1570 г.", "Г) Псков в 1581–1582 гг. осаждал польский король Стефан Баторий."], "check": {"mode": "cells", "n": 4, "letters": true}}, {"kind": "match", "q": "Установите соответствие между событиями и участниками этих событий: к каждой позиции первого столбца подберите соответствующую позицию из второго столбца.", "h": ["События (явления, процессы)", "Участники"], "left": ["взятие Казани", "Ливонская война", "политика опричнины", "освоение Сибири"], "right": ["А. Д. Басманов", "Б. Ф. Годунов", "А. Б. Горбатый-Шуйский", "Ермак Тимофеевич", "П. И. Шуйский", "А. Л. Ордин-Нащокин"], "ans": "3514", "expl": ["А) Князь А. Б. Горбатый-Шуйский — один из главных воевод при взятии Казани в 1552 г.", "Б) Воевода П. И. Шуйский участвовал в Ливонской войне и погиб в битве на реке Уле в 1564 г.", "В) А. Д. Басманов — один из основателей и руководителей опричнины.", "Г) Атаман Ермак Тимофеевич начал присоединение Сибири."], "check": {"mode": "cells", "n": 4, "letters": true}}, {"kind": "match", "q": "Установите соответствие между событиями и годами: к каждой позиции первого столбца подберите соответствующую позицию из второго столбца.", "h": ["События", "Годы"], "left": ["смерть царевича Дмитрия в Угличе", "Тявзинский мир", "смерть Ивана Грозного", "присоединение Астраханского ханства"], "right": ["1552 г.", "1591 г.", "1569 г.", "1556 г.", "1595 г.", "1584 г."], "ans": "2564", "expl": ["А) Царевич Дмитрий погиб в Угличе в 1591 г.", "Б) Тявзинский мир со Швецией заключён в 1595 г.: России вернули Ям, Ивангород, Копорье и Корелу.", "В) Иван Грозный умер в 1584 г.", "Г) Астраханское ханство окончательно присоединено в 1556 г."], "check": {"mode": "cells", "n": 4, "letters": true}}, {"kind": "match", "q": "Установите соответствие между процессами (явлениями, событиями) и фактами, относящимися к этим процессам (явлениям, событиям): к каждой позиции первого столбца подберите соответствующую позицию из второго столбца.", "h": ["Процессы (явления, события)", "Факты"], "left": ["реформы Избранной рады", "опричный террор", "городское строительство при Елене Глинской", "Ливонская война"], "right": ["гибель хана Кучума", "издание Уложения о службе", "гибель Владимира Старицкого", "строительство Смоленского кремля", "взятие Полоцка русскими войсками", "строительство укреплений Китай-города"], "ans": "2365", "expl": ["А) «Уложение о службе» (1556) — одна из реформ Избранной рады: оно установило единый порядок военной службы с земли.", "Б) В 1569 г. по приказу Ивана IV погиб его двоюродный брат, князь Владимир Старицкий, — один из эпизодов опричного террора.", "В) При Елене Глинской в 1535–1538 гг. возвели стены Китай-города в Москве.", "Г) Взятие Полоцка в 1563 г. — крупнейший успех русских войск в Ливонской войне."], "check": {"mode": "cells", "n": 4, "letters": true}}, {"kind": "map", "map": "shema-6b", "q": "Заполните пропуск в предложении (укажите год). «Российский монарх, при котором состоялись события, отражённые на схеме, был венчан на царство в 15____ году». Ответ запишите словом (словосочетанием).", "ans": "сорок седьмом", "expl": ["На схеме — Ливонская война (1558–1583). Она шла при Иване IV, который венчался на царство в 1547 году."], "text": null, "items": null, "check": {"mode": "word", "accept": ["сорокседьмом", "сорокседьмой"]}}, {"kind": "map", "map": "shema-6b", "q": "Укажите название государства, в состав которого в результате военных действий, обозначенных на схеме стрелками, вошла территория, обозначенная в легенде схемы цифрой «3».", "ans": "Швеция", "expl": ["Цифрой «3» заштрихованы земли Северной Эстонии (Эстляндии), которые в ходе Ливонской войны отошли к Швеции."], "text": null, "items": null, "check": {"mode": "word", "accept": ["швеция", "шведскоекоролевство"]}}, {"kind": "map", "map": "shema-6b", "q": "Прочтите текст о событиях, отражённых на схеме, и, используя схему, укажите название реки, пропущенное в этом тексте. Ответ запишите в именительном падеже.", "ans": "Плюсса", "expl": ["Перемирие со Швецией 1583 г. называют Плюсским — по реке Плюссе, у которой его заключили. На схеме река Плюсса подписана к югу от Нарвы."], "text": "Первый тур переговоров между Швецией и Русским государством был проведён в мае 1583 года и закончился подписанием 26 мая прелиминарного мирного договора.\nМестом подписания стал Нойшлос, находившийся чуть к востоку от реки ______. Сам договор чаще упоминают по названию реки…", "items": null, "check": {"mode": "word", "accept": ["плюсса", "плюса"]}}, {"kind": "map", "map": "shema-6b", "q": "Какие суждения, относящиеся к схеме, являются верными? Запишите цифры, под которыми они указаны.", "ans": "256", "expl": ["1) НЕТ, неверно. Ништадт на схеме не обозначен; Ништадтский мир — 1721 г., итог Северной войны Петра I.", "2) ДА, верно. Цифрой «2» обозначены русские земли (Ям, Ивангород, Копорье), утраченные по Плюсскому перемирию 1583 г.", "3) НЕТ, неверно. Цифрой «5» обозначен Псков: войска Стефана Батория (цифра «1») осаждали его в 1581–1582 гг., но взять не смогли.", "4) НЕТ, неверно. Нижний Новгород — центр Второго ополчения — на схеме не обозначен.", "5) ДА, верно. Цифрой «6» обозначен Полоцк, взятый русскими войсками в 1563 г.", "6) ДА, верно. На схеме указана Ливония: Ливонский орден прекратил существование в 1561 г. в ходе этой войны."], "text": null, "items": ["Цифрой «7» на схеме обозначен г. Ништадт.", "В результате военных действий, которые отражены на схеме, Российское государство утратило территории, обозначенные в легенде схемы цифрой «2».", "Цифрой «5» на схеме обозначен город, взятый после длительной осады войсками, направления действий которых обозначены в легенде схемы цифрой «1».", "На схеме обозначен город, являвшийся центром формирования Второго земского ополчения в период Смуты.", "В ходе боевых действий, отражённых на схеме, русскими войсками был взят город, обозначенный на схеме цифрой «6».", "На схеме указано государственное образование, прекратившее своё существование в результате обозначенных на схеме событий."], "check": {"mode": "set"}}];
+const P2={"src": [], "tasks": [{"n": 16, "img": ["moneta.jpg"], "q": "Укажите, чей поход изображён на монете. Используя изображение, приведите одно любое обоснование Вашего ответа."}, {"n": 17, "img": ["pamyatniki.jpg"], "q": "Какой из представленных ниже памятников культуры был построен в том же веке, когда произошло событие, которому посвящена монета? Выберите цифру. В честь какого события был сооружён памятник?"}, {"n": 19, "q": "В 1547 г. Иван IV торжественно венчался на царство. Укажите:", "sub": ["а) причину венчания на царство Ивана IV, связанную с централизацией власти;", "б) последствие венчания на царство Ивана IV для положения бояр;", "в) последствие венчания на царство Ивана IV для международного положения государства."], "form": ["а)", "б)", "в)"]}, {"n": 20, "q": "Вспомните смысл понятия «приказы» и ответьте на вопросы. Какие виды управления осуществляли приказы в Российском государстве? Какой приказ занимался внешней политикой государства?"}, {"n": 21, "q": "Запишите один любой тезис (обобщённое оценочное суждение), содержащий информацию о различиях внешней политики Ивана Грозного на северо-западном и юго-восточном направлениях по какому(-им)-либо признаку(-ам). Приведите два обоснования этого тезиса. Каждое обоснование должно содержать два исторических факта (по одному для каждого из сравниваемых объектов). При обосновании тезиса избегайте рассуждений общего характера.", "form": ["Тезис:", "Обоснование 1:", "Обоснование 2:"]}, {"n": 22, "q": "Сформулируйте два аргумента в подтверждение следующей точки зрения: «Внутренняя политика Ивана IV способствовала укреплению централизованного государства». При изложении аргументов обязательно используйте исторические факты. Для второго аргумента не следует использовать факты, которые Вы уже использовали для первого аргумента.", "form": ["Аргумент 1:", "Аргумент 2:"]}]};
+const LET="АБВГДЕ";
+const KIND={match:"Соответствие",chrono:"Хронология",table13:"Таблица",source:"Работа с источником",map:"Работа со схемой"};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+document.getElementById('videoList').innerHTML=VIDEOS.map((v,i)=>{
+  const src=`https://rutube.ru/play/embed/${v.id}/?p=${v.p}`, page=`https://rutube.ru/video/private/${v.id}/?p=${v.p}`;
+  return `<div class="video"><div class="vh"><span class="tag">${i+1}</span><h3>${v.t}</h3><a href="${page}" target="_blank" rel="noopener">Открыть на Rutube ↗</a></div>
+  <div class="ratio"><iframe src="${src}" loading="lazy" allow="clipboard-write; autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></div>`}).join('');
+
+function go(v,anchor){
+  document.querySelectorAll('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));
+  if(anchor){requestAnimationFrame(()=>document.getElementById(anchor).scrollIntoView())}else window.scrollTo(0,0);
+}
+
+/* ---------- TEST ---------- */
+let cur=0, res=[];
+function startTest(){cur=0;res=new Array(QUIZ.length).fill(null);go('test');renderQ()}
+function items(list){return '<ol class="items">'+list.map((x,i)=>`<li><b>${i+1})</b> ${esc(x)}</li>`).join('')+'</ol>'}
+function body(t){
+  let h='';
+  if(t.kind==='match'){
+    h+=`<p class="q">${esc(t.q)}</p><table class="mt"><tr><th>${esc(t.h[0])}</th><th>${esc(t.h[1])}</th></tr>`;
+    for(let i=0;i<6;i++)h+=`<tr><td>${i<t.left.length?LET[i]+') '+esc(t.left[i]):''}</td><td>${i+1}) ${esc(t.right[i])}</td></tr>`;
+    h+='</table>';
+  }else if(t.kind==='chrono'){h+=`<p class="q">${esc(t.q)}</p>`+items(t.items)}
+  else if(t.kind==='table13'){
+    const b=x=>`<span class="blank">(${x})</span>`;
+    h+=`<p class="q">${esc(t.q)}</p><div class="intro">Пропущенные элементы:</div><div class="pool">${items(t.items)}</div>
+    <table class="mt"><tr><th>Географический объект</th><th>Событие (явление, процесс)</th><th>Время</th></tr>`+
+    t.rows.map(r=>'<tr>'+r.map(c=>`<td>${c[0]==='#'?b(c.slice(1)):esc(c)}</td>`).join('')+'</tr>').join('')+`</table>`;
+  }else if(t.kind==='source'){
+    h+=`<div class="intro">${esc(t.intro)}</div><div class="src">`+t.text.map((p,i,a)=>`<p>${i==0?'«':''}${esc(p)}${i==a.length-1?'»':''}</p>`).join('')+`</div><p class="q">${esc(t.q)}</p>`+items(t.items);
+  }else if(t.kind==='map'){
+    h+=`<p class="q">${esc(t.q)}</p>`;
+    if(t.text)h+=`<div class="src">`+t.text.split('\n').map((p,i,a)=>`<p>${i==0?'«':''}${esc(p)}${i==a.length-1?'»':''}</p>`).join('')+`</div>`;
+    if(t.items)h+=items(t.items);
+    h+=`<div class="map"><img src="img/${t.map}.jpg" alt="Схема" onclick="zoom(this.src)"></div>`;
+  }
+  return h;
+}
+function answerUI(t){
+  const c=t.check;
+  if(c.mode==='cells'){
+    let h='<div class="cells">';
+    for(let i=0;i<c.n;i++)h+=`<div class="cell"><label>${c.letters?LET[i]:''}</label><input inputmode="numeric" maxlength="1" data-i="${i}"></div>`;
+    return h+'</div>';
+  }
+  if(c.mode==='set')return '<input class="txt" id="ansTxt" inputmode="numeric" placeholder="Например: 135" autocomplete="off">';
+  return '<input class="txt" id="ansTxt" placeholder="Ответ словом" autocomplete="off"><p class="hint">Пишите словом, без пробелов можно — регистр не важен.</p>';
+}
+function dots(){return '<div class="dots">'+QUIZ.map((_,i)=>`<button class="${i===cur?'cur ':''}${res[i]===true?'ok':res[i]===false?'bad':''}" onclick="cur=${i};renderQ()">${i+1}</button>`).join('')+'</div>'}
+function renderQ(){
+  const t=QUIZ[cur], done=res.filter(x=>x!==null).length, pts=res.filter(x=>x===true).length;
+  const P=document.getElementById('testPanel');
+  P.innerHTML=`<div class="qtop"><button class="back" onclick="go('home','practice')">← К теме</button><div class="prog"><i style="width:${done/QUIZ.length*100}%"></i></div><span class="score-mini">${pts} / ${QUIZ.length} баллов</span></div>
+  ${dots()}
+  <div class="qnum"><b>${cur+1}</b><span>${KIND[t.kind]}</span></div>
+  ${body(t)}
+  <div class="answer"><div>${answerUI(t)}</div><button class="btn o" id="chk" onclick="check()">Проверить</button></div>
+  <div class="fb" id="fb"></div>
+  <div class="nav-row"><button class="btn g" onclick="prev()" ${cur===0?'disabled':''}>← Назад</button><button class="btn n" id="nextBtn" onclick="next()">${cur===QUIZ.length-1?'Завершить':'Дальше →'}</button></div>`;
+  const cells=[...P.querySelectorAll('.cell input')];
+  cells.forEach((inp,i)=>{
+    inp.addEventListener('input',()=>{inp.value=inp.value.replace(/\D/g,'').slice(-1);if(inp.value&&cells[i+1])cells[i+1].focus()});
+    inp.addEventListener('keydown',e=>{if(e.key==='Backspace'&&!inp.value&&cells[i-1])cells[i-1].focus();if(e.key==='Enter')check()});
+  });
+  const tx=P.querySelector('#ansTxt'); if(tx)tx.addEventListener('keydown',e=>{if(e.key==='Enter')check()});
+  if(res[cur]!==null){showFB(res[cur],true)}
+  else (cells[0]||tx).focus({preventScroll:true});
+}
+const norm=s=>s.toLowerCase().replace(/ё/g,'е').replace(/[^a-zа-я0-9]/g,'');
+function getAns(){
+  const t=QUIZ[cur];
+  if(t.check.mode==='cells')return [...document.querySelectorAll('.cell input')].map(i=>i.value).join('');
+  return document.getElementById('ansTxt').value;
+}
+function check(){
+  if(res[cur]!==null)return;
+  const t=QUIZ[cur], c=t.check, a=getAns();
+  let ok;
+  if(c.mode==='cells'){if(a.length<c.n){flash();return} ok=a===t.ans}
+  else if(c.mode==='set'){const d=a.replace(/\D/g,''); if(!d){flash();return} ok=[...new Set(d)].sort().join('')===[...t.ans].sort().join('')&&d.length===t.ans.length}
+  else {const n=norm(a); if(!n){flash();return} ok=c.accept.includes(n)}
+  res[cur]=ok; showFB(ok,false);
+  document.querySelector('.prog i').style.width=(res.filter(x=>x!==null).length/QUIZ.length*100)+'%';
+  document.querySelector('.score-mini').textContent=res.filter(x=>x===true).length+' / '+QUIZ.length+' баллов';
+  document.querySelectorAll('.dots button')[cur].classList.add(ok?'ok':'bad');
+}
+function flash(){const a=document.querySelector('.answer');a.animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:250})}
+function showFB(ok,locked){
+  const t=QUIZ[cur], fb=document.getElementById('fb');
+  fb.className='fb on '+(ok?'ok':'bad');
+  fb.innerHTML=`<div class="verdict">${ok?'✓ Верно! +1 балл':'✗ Неверно'}</div><div class="right">Правильный ответ: <code>${esc(t.ans)}</code></div><div class="ex">${t.expl.map(p=>`<p>${esc(p)}</p>`).join('')}</div>`;
+  document.querySelectorAll('.answer input').forEach(i=>i.disabled=true);
+  document.getElementById('chk').disabled=true;
+  if(!locked)fb.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function next(){if(cur<QUIZ.length-1){cur++;renderQ();window.scrollTo(0,document.getElementById('testPanel').offsetTop-90)}else finish()}
+function prev(){if(cur>0){cur--;renderQ()}}
+function finish(){
+  const pts=res.filter(x=>x===true).length, skipped=res.filter(x=>x===null).length;
+  const r=pts/QUIZ.length;const msg=r>=.9?'Блестяще! Тема в кармане 🐾':r>=.7?'Хороший результат! Повторите ошибки — и будет идеально.':r>=.47?'Неплохо, но стоит ещё раз пройтись по скрипту и запоминашке.':'Вернитесь к лекциям и запоминашке, а потом попробуйте ещё раз.';
+  document.getElementById('testPanel').innerHTML=`<div class="result"><img src="img/logo.png" alt=""><div class="big-score">${pts}<span style="font-size:36px;color:var(--soft)"> / ${QUIZ.length}</span></div>
+  <h2>${msg}</h2>${skipped?`<p style="color:var(--soft)">Без ответа: ${skipped}</p>`:''}
+  <p style="color:var(--soft)">Нажмите на номер задания, чтобы посмотреть его ещё раз.</p>
+  <div class="grid30">${res.map((r,i)=>`<button class="${r===true?'ok':'bad'}" onclick="cur=${i};renderQ()">${i+1}</button>`).join('')}</div>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn o" onclick="startTest()">Пройти заново</button><button class="btn n" onclick="go('part2')">Вторая часть →</button></div></div>`;
+  window.scrollTo(0,0);
+}
+function zoom(src){const l=document.getElementById('lb');l.querySelector('img').src=src;l.classList.add('on')}
+
+/* ---------- PART 2 ---------- */
+const srcHTML='<div class="intro">'+esc(P2.srcIntro)+'</div><div class="src"><p><b style="font-style:normal">'+esc(P2.srcTitle)+'</b></p>'+P2.src.map((p,i,a)=>`<p>${i==0?'«':''}${esc(p)}${i==a.length-1?'»':''}</p>`).join('')+'</div>';
+let shownSrc=false;
+document.getElementById('p2list').innerHTML=P2.tasks.map((t,k)=>{
+  let h=`<div class="panel"><div class="qnum"><b>${t.n}</b><span>Задание ${t.n}</span></div>`;
+  if(t.src){h+= !shownSrc ? srcHTML : `<details class="srcd"><summary>Показать отрывок из ${esc(P2.srcLabel||'источника')}</summary>${srcHTML}</details>`; shownSrc=true;}
+  h+=`<p class="q">${esc(t.q)}</p>`;
+  if(t.img)h+=t.img.map(f=>`<div class="map"><img src="img/${f}" alt="" onclick="zoom(this.src)"></div>`).join('');
+  if(t.sub)h+='<div>'+t.sub.map(s=>`<p style="margin:0 0 4px">${esc(s)}</p>`).join('')+'</div>';
+  if(t.form)h+='<ul class="lines">'+t.form.map(f=>`<li>${esc(f)}<span></span></li>`).join('')+'</ul>';
+  if(t.a)h+=`<div class="reveal"><button class="btn o" onclick="toggleAns(this,${k})">Посмотреть ответ</button></div><div class="ans" id="ans${k}"><h4>Правильный ответ</h4>${t.a.map(p=>`<p>${esc(p)}</p>`).join('')}</div>`;
+  h+='</div>';
+  return h;
+}).join('');
+function toggleAns(b,k){const a=document.getElementById('ans'+k);a.classList.toggle('on');b.textContent=a.classList.contains('on')?'Скрыть ответ':'Посмотреть ответ'}
+</script>
+</body>
+</html>
